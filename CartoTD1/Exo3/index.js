@@ -1,25 +1,40 @@
-window.addEventListener("deviceorientation", handleOrientation, true);
 
 const alpa = document.querySelector('#alpa')
 const beta = document.querySelector('#beta')
 const gamma = document.querySelector('#gamma')
-const rotation = document.querySelector('#rotation')
-const acceleration = document.querySelector('#acceleration')
+
+const x = document.querySelector('#X')
+const y = document.querySelector('#Y')
+const z = document.querySelector('#Z')
 
 function handleOrientation(event) {
-    var alpha    = event.alpha;
-    var beta     = event.beta;
-    var gamma    = event.gamma;
+    let alpha    = event.alpha;
+    let beta     = event.beta;
+    let gamma    = event.gamma;
   
-    var rotationRate = deviceMotionEvent.rotationRate;
-    var acceleration = event.acceleration;
-
     alpa.textContent = alpha
     beta.textContent = alpha
     gamma.textContent = gamma
+}
 
-    rotation.textContent = rotationRate
-    acceleration.textContent = acceleration
+function handleAcceleration(event) {
+    let x = event.accelerationIncludingGravity.x;
+    let y = event.accelerationIncludingGravity.y;
+    let z = event.accelerationIncludingGravity.z;
 
+    x.textContent = x
+    y.textContent = y
+    z.textContent = z
 }
   
+if(window.DeviceOrientationEvent) {
+    window.addEventListener("deviceorientation", handleOrientation, false);
+} else {
+    alert("Le naviguateur ne supporte pas l'événement deviceorientation")
+}
+
+if(window.DeviceMotionEvent) {
+    window.addEventListener("devicemotion", handleAcceleration, false);
+} else {
+    alert("Le naviguateur ne supporte pas l'évenement devicemotion")
+}
