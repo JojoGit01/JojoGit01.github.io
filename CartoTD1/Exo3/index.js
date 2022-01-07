@@ -12,9 +12,9 @@ function handleOrientation(event) {
     let eBeta     = event.beta;
     let eGamma    = event.gamma;
   
-    iAlpa.textContent = eAlpha
-    iBeta.textContent =  eBeta
-    iGamma.textContent = eGamma
+    iAlpa.innerHTML = eAlpha
+    iBeta.innerHTML =  eBeta
+    iGamma.innerHTML = eGamma
 }
 
 function handleAcceleration(event) {
@@ -22,9 +22,9 @@ function handleAcceleration(event) {
     let eY = event.accelerationIncludingGravity.y;
     let eZ = event.accelerationIncludingGravity.z;
 
-    iX.textContent = eX
-    iY.textContent = eY
-    iZ.textContent = eZ
+    iX.innerHTML = eX
+    iY.innerHTML = eY
+    iZ.innerHTML = eZ
 }
   
 if(window.DeviceOrientationEvent) {
