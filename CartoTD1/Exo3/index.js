@@ -1,7 +1,7 @@
 
-const alpa = document.querySelector('#alpa')
-const beta = document.querySelector('#beta')
-const gamma = document.querySelector('#gamma')
+const ialpa = document.querySelector('#alpa')
+const ibeta = document.querySelector('#beta')
+const igamma = document.querySelector('#gamma')
 
 const x = document.querySelector('#X')
 const y = document.querySelector('#Y')
@@ -12,19 +12,23 @@ function handleOrientation(event) {
     let beta     = event.beta;
     let gamma    = event.gamma;
   
-    alpa.textContent = alpha
-    beta.textContent = alpha
-    gamma.textContent = gamma
+    ialpa.textContent = alpha
+    ibeta.textContent =  beta
+    igamma.textContent = gamma
 }
 
 function handleAcceleration(event) {
-    let x = event.accelerationIncludingGravity.x;
-    let y = event.accelerationIncludingGravity.y;
-    let z = event.accelerationIncludingGravity.z;
 
-    x.textContent = x
-    y.textContent = y
-    z.textContent = z
+    alert("zeaz")
+
+
+    let ex = event.accelerationIncludingGravity.x;
+    let ey = event.accelerationIncludingGravity.y;
+    let ez = event.accelerationIncludingGravity.z;
+
+    x.textContent = ex
+    y.textContent = ey
+    z.textContent = ez
 }
   
 if(window.DeviceOrientationEvent) {
