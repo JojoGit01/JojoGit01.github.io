@@ -28,13 +28,13 @@ function handleAcceleration(event) {
 }
   
 if(window.DeviceOrientationEvent) {
-    window.addEventListener("deviceorientation", handleOrientation, true);
+    window.addEventListener("deviceorientation", handleOrientation, false);
 } else {
     alert("Le naviguateur ne supporte pas l'événement deviceorientation")
 }
 
 if(window.DeviceMotionEvent) {
-    document.addEventListener("devicemotion", handleAcceleration, true);
+    document.addEventListener("devicemotion", handleAcceleration, false);
 } else {
     alert("Le naviguateur ne supporte pas l'évenement devicemotion")
 }
