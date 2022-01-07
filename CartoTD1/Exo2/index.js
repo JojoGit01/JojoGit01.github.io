@@ -10,6 +10,13 @@ const preci_mesure = document.querySelector('#preci_mesure')
 const vitesse = document.querySelector('#vitesse')
 const timestamp = document.querySelector('#timestamp')
 
+const getDate = () => { 
+  let today = new Date();
+  let date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+  return date+' '+time;
+}
+
 function success(pos) {
   var crd = pos.coords;
 
@@ -17,8 +24,7 @@ function success(pos) {
   lat.textContent = `Longitude : ${crd.longitude}`
   preci_mesure.textContent = `La précision est de ${crd.accuracy} mètres.`
   vitesse.textContent = `Vitesse : ${crd.speed}`
-  timestamp.textContent = `Timestamp : ${crd.timestamp}`
-
+  timestamp.textContent = `Timestamp : ${getDate()}`
 }
 
 function error(err) {
