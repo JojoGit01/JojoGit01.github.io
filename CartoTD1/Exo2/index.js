@@ -32,7 +32,7 @@ function error(err) {
 }
 
 // Watch position
-//var survId = navigator.geolocation.watchPosition(success, error, options);
+var survId = navigator.geolocation.watchPosition(success, error, options);
 
 // Get Current Position
-navigator.geolocation.getCurrentPosition(success, error, options);
+//navigator.geolocation.getCurrentPosition(success, error, options);
