@@ -20,7 +20,7 @@ function handleMotion(event) {
 }
 
 
-document.addEventListener("DOMContentLoaded", () => {    
+document.addEventListener("DOMContentLoaded", () => {   
     if(window.DeviceOrientationEvent) {
         window.addEventListener("deviceorientation", handleOrientation, true);
     } else {
