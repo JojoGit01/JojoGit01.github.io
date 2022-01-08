@@ -9,14 +9,27 @@
 </head>
 <body>
 
-    <div class="td1">
+    <div class="td1_exo2">
         <h1>Les données avec géolocalisation</h1>
-        <p>Longitude : <span id="lon"></span></p>
-        <p>Latitude : <span id="lat"></span></p>
-        <p>La précision est de : <span id="preci_mesure"> mètres</span></p>
-        <p>Vitesse : <span id="vitesse"></span></p>
-        <p>Timestamp : <span id="timestamp"></span></p>
+        <div id="data_getCurrentPosition">
+            <h1>Résultats getCurrentPosition()</h1>
+            <p>Longitude : <span id="lon1"></span></p>
+            <p>Latitude : <span id="lat1"></span></p>
+            <p>La précision est de : <span id="preci_mesure1"></span> mètres</p>
+            <p>Vitesse : <span id="vitesse1"></span></p>
+            <p>Timestamp : <span id="timestamp1"></span></p>
+            <button id="btn_getCurrentPosition">GetCurrentPosition</button>
+        </div>
+        <div id="data_watchPosition">
+            <h1>Résultats watchPosition()</h1>
+            <p>Longitude : <span id="lon2"></span></p>
+            <p>Latitude : <span id="lat2"></span></p>
+            <p>La précision est de : <span id="preci_mesure2"></span> mètres</p>
+            <p>Vitesse : <span id="vitesse2"></span></p>
+            <p>Timestamp : <span id="timestamp2"></span></p>
+        </div>
     </div>
+
     <div id="map"></div>
     
     <!-- 
