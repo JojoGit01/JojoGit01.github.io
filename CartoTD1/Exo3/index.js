@@ -6,6 +6,10 @@ const iGamma = document.querySelector('#gamma')
 const iX = document.querySelector('#X')
 const iY = document.querySelector('#Y')
 const iZ = document.querySelector('#Z')
+const iGravityX = document.querySelector('#gravityX')
+const iGravityY = document.querySelector('#gravityY')
+const iGravityZ = document.querySelector('#gravityZ')
+
 
 function handleOrientation(event) {
     iAlpa.textContent = event.alpha
@@ -14,9 +18,12 @@ function handleOrientation(event) {
 }
 
 function handleMotion(event) {
-    iX.textContent = event.accelerationIncludingGravity.x
-    iY.textContent = event.accelerationIncludingGravity.y
-    iZ.textContent = event.accelerationIncludingGravity.z
+    iX.textContent = event.acceleration.x
+    iY.textContent = event.acceleration.y
+    iZ.textContent = event.acceleration.z
+    iGravityX.textContent = event.accelerationIncludingGravity.x
+    iGravityY.textContent = event.accelerationIncludingGravity.y
+    iGravityZ.textContent = event.accelerationIncludingGravity.z
 }
 
 
