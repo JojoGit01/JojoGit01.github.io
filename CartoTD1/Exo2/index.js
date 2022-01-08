@@ -14,16 +14,16 @@ const timestamp = document.querySelector('#timestamp')
 function success(pos) {
   let crd = pos.coords;
 
-  lon.textContent = `Latitude : ${crd.latitude}`
-  lat.textContent = `Longitude : ${crd.longitude}`
-  preci_mesure.textContent = `La précision est de ${crd.accuracy} mètres.`
-  vitesse.textContent = `Vitesse : ${crd.speed}`
+  lon.textContent = `${crd.latitude}`
+  lat.textContent = `${crd.longitude}`
+  preci_mesure.textContent = `${crd.accuracy}`
+  vitesse.textContent = `${crd.speed}`
   getDate()
 }
 
 const getDate = () => {
   const date = new Date();
-  timestamp.textContent = `Timestamp : ${date.toLocaleTimeString()}`;
+  timestamp.textContent = `${date.toLocaleTimeString()}`;
   setTimeout(function() {getDate()}, 1000);
 }
 
@@ -32,7 +32,7 @@ function error(err) {
 }
 
 // Watch position
-var survId = navigator.geolocation.watchPosition(success, error, options);
+//var survId = navigator.geolocation.watchPosition(success, error, options);
 
 // Get Current Position
 navigator.geolocation.getCurrentPosition(success, error, options);
