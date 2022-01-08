@@ -50,9 +50,9 @@ function error(err) {
 }
 
 document.getElementById('btn_getCurrentPosition').addEventListener('click', () => {
+  // Get Current Position
   navigator.geolocation.getCurrentPosition(successGetCurrentPosition, error);
 })
-// Get Current Position
 
 document.addEventListener("DOMContentLoaded", () => {
   // Watch position

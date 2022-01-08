@@ -8,33 +8,28 @@ const iY = document.querySelector('#Y')
 const iZ = document.querySelector('#Z')
 
 function handleOrientation(event) {
-    let eAlpha    = event.alpha;
-    let eBeta     = event.beta;
-    let eGamma    = event.gamma;
-  
-    iAlpa.textContent = eAlpha
-    iBeta.textContent =  eBeta
-    iGamma.textContent = eGamma
+    iAlpa.textContent = event.alpha
+    iBeta.textContent =  event.beta
+    iGamma.textContent = event.gamma
 }
 
-function handleAcceleration(event) {
-    let eX = event.accelerationIncludingGravity.x;
-    let eY = event.accelerationIncludingGravity.y;
-    let eZ = event.accelerationIncludingGravity.z;
-
-    iX.textContent = eX
-    iY.textContent = eY
-    iZ.textContent = eZ
-}
-  
-if(window.DeviceOrientationEvent) {
-    window.addEventListener("deviceorientation", handleOrientation, true);
-} else {
-    alert("Le naviguateur ne supporte pas l'événement deviceorientation")
+function handleMotion(event) {
+    iX.textContent = event.accelerationIncludingGravity.x
+    iY.textContent = event.accelerationIncludingGravity.y
+    iZ.textContent = event.accelerationIncludingGravity.z
 }
 
-if(window.DeviceMotionEvent) {
-    document.addEventListener("devicemotion", handleAcceleration, true);
-} else {
-    alert("Le naviguateur ne supporte pas l'évenement devicemotion")
-}
+
+document.addEventListener("DOMContentLoaded", () => {    
+    if(window.DeviceOrientationEvent) {
+        document.addEventListener("deviceorientation", handleOrientation, true);
+    } else {
+        alert("Le naviguateur ne supporte pas l'événement deviceorientation")
+    }
+
+    if(window.DeviceMotionEvent) {
+        document.addEventListener("devicemotion", handleMotion, true);
+    } else {
+        alert("Le naviguateur ne supporte pas l'évenement devicemotion")
+    }
+})
