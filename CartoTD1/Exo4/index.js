@@ -9,8 +9,6 @@ const handleStart = (event) => {
     iEvent.textContent = "touchstart"
 }
 const handleMove = (event) => {
-    iX.textContent = event.touches[0].clientX
-    iY.textContent = event.touches[0].clientY
     iEvent.textContent = "touchemove"
 }
 
