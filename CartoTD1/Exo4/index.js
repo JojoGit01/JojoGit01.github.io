@@ -14,7 +14,7 @@ const getPosClicked = (event) => {
 
 const onTouch = (event) => {
     event.preventDefault();
-    
+
     switch (event.type) {
         case "touchestart": iEvent.textContent = "touchestart"
         case "touchmove": iEvent.textContent = "touchmove"
@@ -25,7 +25,7 @@ const onTouch = (event) => {
 
 document.addEventListener("DOMContentLoaded", () =>  {
 
-    document.addEventListener('click', getPosClicked)
+    document.addEventListener('touchend', getPosClicked)
 
     document.addEventListener('touchstart', onTouch)
     document.addEventListener('touchmove', onTouch)
