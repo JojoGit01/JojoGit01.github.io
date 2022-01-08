@@ -22,13 +22,13 @@ function handleMotion(event) {
 
 document.addEventListener("DOMContentLoaded", () => {    
     if(window.DeviceOrientationEvent) {
-        document.addEventListener("deviceorientation", handleOrientation, true);
+        window.addEventListener("deviceorientation", handleOrientation, true);
     } else {
         alert("Le naviguateur ne supporte pas l'événement deviceorientation")
     }
 
     if(window.DeviceMotionEvent) {
-        document.addEventListener("devicemotion", handleMotion, true);
+        window.addEventListener("devicemotion", handleMotion, true);
     } else {
         alert("Le naviguateur ne supporte pas l'évenement devicemotion")
     }
