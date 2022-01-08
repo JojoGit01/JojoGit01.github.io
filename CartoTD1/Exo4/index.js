@@ -4,13 +4,13 @@ const iY = document.querySelector('#y')
 const iEvent = document.querySelector('#event')
 
 const handleStart = (event) => {
-    let x = event.touches[0].clientX
-    let y = event.touches[0].clientY
-    iX.textContent = x
-    iY.textContent = y
+    iX.textContent = event.touches[0].clientX
+    iY.textContent = event.touches[0].clientY
     iEvent.textContent = "touchstart"
 }
 const handleMove = (event) => {
+    iX.textContent = event.touches[0].clientX
+    iY.textContent = event.touches[0].clientY
     iEvent.textContent = "touchemove"
 }
 
