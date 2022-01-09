@@ -29,6 +29,10 @@ const iGravityX = document.querySelector('#gravityX')
 const iGravityY = document.querySelector('#gravityY')
 const iGravityZ = document.querySelector('#gravityZ')
 
+const iEventX = document.querySelector('#eventX')
+const iEventY = document.querySelector('#eventY')
+const iEvent = document.querySelector('#event')
+
 const mapPosition = (pos) => {
     let crd = pos.coords
 
@@ -42,7 +46,7 @@ const mapPosition = (pos) => {
         }
     ];
 
-    const layout = {
+    let layout = {
         dragmode: "zoom",
         mapbox: { style: "open-street-map", center: { lat: crd.latitude, lon: crd.longitude }, zoom: 16 },
         margin: { r: 0, t: 0, b: 0, l: 0 }
@@ -90,6 +94,23 @@ const createChartOrientation = (event) => {
     Plotly.newPlot('chartOrientation', data, layout)
 }
 
+let scene = new THREE.Scene();
+let camera = new THREE.PerspectiveCamera(
+    75, window.innerWidth/window.innerHeight,
+    0.5, 1000
+);
+camera.position.z = 2;
+let idCubeOrientation = document.querySelector('#cubeOrientation')
+
+let renderer = new THREE.WebGLRenderer();
+idCubeOrientation.appendChild(renderer.domElement);
+
+//Cube
+let geometry = new THREE.BoxGeometry(1, 1, 1);
+let material = new THREE.MeshNormalMaterial({color: 0x00aaff});
+let cube = new THREE.Mesh(geometry, material);
+scene.add(cube);
+
 const handleOrientation = (event) => {
     iAlpa.textContent = event.alpha
     iBeta.textContent =  event.beta
@@ -104,6 +125,14 @@ const handleMotion = (event) => {
     iGravityX.textContent = event.accelerationIncludingGravity.x
     iGravityY.textContent = event.accelerationIncludingGravity.y
     iGravityZ.textContent = event.accelerationIncludingGravity.z
+
+    const animate = () => {
+        requestAnimationFrame(animate)
+        cube.rotation.x += event.acceleration.x
+        cube.rotation.y += event.acceleration.y
+        renderer.render(scene, camera);
+    }
+    animate()
 }
 
 const device = () => {
@@ -114,22 +143,67 @@ const device = () => {
     else alert("Le naviguateur ne supporte pas l'évenement devicemotion")
 }
 
-const capteur = () => {
+const drawForCapteur = () => {
     var canvas = document.getElementById('canvasCapteur');
     var ctx = canvas.getContext('2d');
-    ctx.rect(10, 10, 100, 100);
-    ctx.fillStyle = "blue"
+    ctx.rect(0, 0, 500, 250);
+    ctx.fillStyle = "white"
     ctx.fill();
+    return ctx
 }
+
+const setColorCanvasCapteur = (ctx, color) => {
+    ctx.fillStyle = color
+    ctx.fill()
+}
+
+const getSelectValue = () => {
+    let result = document.getElementById('selectCapteur').value
+    ctx = drawForCapteur()
+    switch(result) {
+        case '1':
+            setColorCanvasCapteur(ctx, 'blue')
+            break
+        case '2':
+            setColorCanvasCapteur(ctx, 'red')
+            break
+        case '3':
+            setColorCanvasCapteur(ctx, 'black')
+            break
+        case '4':
+            setColorCanvasCapteur(ctx, 'purple')
+            break
+    }
+}
+
+const handleStart = (event) => {
+    iEventX.textContent = event.touches[0].clientX
+    iEventY.textContent = event.touches[0].clientY
+    iEvent.textContent = "touchstart"
+}
+const handleMove = (event) => {
+    iEvent.textContent = "touchemove"
+}
+
+const handleCancel = (event) => {
+    iEvent.textContent = "touchcancel"
+}
+
+const handleEnd = (event) => {
+    iEvent.textContent = "touchend"
+} 
 
 document.addEventListener("DOMContentLoaded", () => {
     navigator.geolocation.watchPosition(successWatchPosition, error, options);
 
     device()
-    capteur()
 
     ID_BTN_MAP.addEventListener('click', () => {
         navigator.geolocation.getCurrentPosition(mapPosition, error);
     })
 
+    document.addEventListener('touchstart', handleStart)
+    document.addEventListener('touchmove', handleMove)
+    document.addEventListener('touchcancel', handleCancel)
+    document.addEventListener('touchend', handleEnd)
 })
