@@ -128,8 +128,8 @@ const handleMotion = (event) => {
 
     const animate = () => {
         requestAnimationFrame(animate)
-        cube.rotation.x += event.acceleration.x
-        cube.rotation.y += event.acceleration.y
+        cube.rotation.x = event.acceleration.x
+        cube.rotation.y = event.acceleration.y
         renderer.render(scene, camera);
     }
     animate()
