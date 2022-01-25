@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Exercice 1</title>
+</head>
+<body>
+    <h1>Exercice 1</h1>
+    <div class="container">
+        <canvas class="mycanvas" id="mycanvas" width="1000" height="500"></canvas>
+        <img class="scream" id="scream" width="1000" height="500" src="prairie.png">
+    </div>
+
+    <svg class="svg" width="500" height="400" style="border: 3px solid #000;">
+
+        <rect x="0" y="0" width="500" height="225" id="ciel" style="fill:rgb(0,0,255);" />
+        <rect x="0" y="225" width="500" height="175" style="fill:rgb(3, 170, 17);" />
+        
+        <polygon points="112.5 20, 225 225, 12 225" style="fill:rgba(204, 78, 6, 0.863);stroke-width:5;stroke:rgba(223, 127, 1, 0.781)" />
+        <polygon points="187.5 40, 300 225, 112.5 225" style="fill:rgba(204, 78, 6, 0.863);stroke-width:5;stroke:rgba(223, 127, 1, 0.781)" />
+        <polygon points="300 40, 400 225, 225 225" style="fill:rgba(204, 78, 6, 0.863);stroke-width:5;stroke:rgba(223, 127, 1, 0.781)" />
+        <polygon points="415 20, 490 225, 350 225" style="fill:rgba(204, 78, 6, 0.863);stroke-width:5;stroke:rgba(223, 127, 1, 0.781)" />
+
+        <circle id="soleil" cx="440" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow" />
+        
+        <rect x="40" y="225" width="150" height="150" style="fill:rgba(4, 22, 187, 0.863);stroke-width:5;stroke:rgba(1, 167, 139, 0.781)" />
+        <rect id="door" x="60" y="250" width="50" height="120" style="fill:rgba(126, 96, 0, 0.863);stroke-width:5;stroke:rgba(158, 135, 1, 0.781)" />
+        <polygon points="115 130, 40 225, 190 225" style="fill:rgba(250, 0, 0, 0.863);stroke-width:5;stroke:rgba(195, 4, 4, 0.781)" />
+        
+        Sorry, your browser does not support inline SVG.
+     </svg> 
+      
+    <script src="index.js"></script>
+</body>
+</html>

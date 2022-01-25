@@ -1,0 +1,10 @@
+.svg {
+    margin-top: 550px;
+}
+
+.mycanvas, .scream {
+    position: absolute;
+}
+.mycanvas {
+    z-index: 1;
+}
