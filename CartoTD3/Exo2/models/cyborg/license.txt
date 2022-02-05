@@ -1,0 +1,11 @@
+Model Information:
+* title:	Cyborg
+* source:	https://sketchfab.com/3d-models/cyborg-ecd0c4f6220942298f4df3e9d1c2f591
+* author:	Ploobert (https://sketchfab.com/Ploobert)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Cyborg" (https://sketchfab.com/3d-models/cyborg-ecd0c4f6220942298f4df3e9d1c2f591) by Ploobert (https://sketchfab.com/Ploobert) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

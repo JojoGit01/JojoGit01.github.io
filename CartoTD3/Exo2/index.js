@@ -58,6 +58,7 @@ const app = () => {
     // Add object
     scene.add(cube, light, particlesMesh);
 
+    cube.position.x = -1.5
     cube.rotation.x = 10;
     cube.rotation.y = 20;
 
@@ -69,16 +70,31 @@ const app = () => {
     // renderer
     renderer.render(scene, camera);
 
+    let object3D = new THREE.Object3D();
+    const getModel3D = () => {
+        let loader3D = new THREE.GLTFLoader()
+        loader3D.load('models/cyborg/scene.gltf', (gltf) => {
+            object3D = gltf.scene
+            object3D.scale.set(0.5, 0.5, 0.5);
+            object3D.position.x = 1;
+            object3D.position.y = 1;
+            scene.add(object3D)
+        })
+    }
+
+    getModel3D()
+
     // Animate Object
     const animateObject = (x, y) => {
         requestAnimationFrame( animateObject );
         cube.rotation.x += 0.01;
         cube.rotation.y += 0.01;
+        object3D.rotation.y += 0.01;
         renderer.render( scene, camera );
     };
     
     let boolHandleMotion = false;
-    if(!boolHandleMotion) animateObject()
+    if(!boolHandleMotion) animateObject(0.01, 0.01)
 
     // Animate Object
     const handleMotion = (event) => {
